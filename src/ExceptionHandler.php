@@ -54,7 +54,7 @@ class ExceptionHandler extends Handler
      */
     public function __construct(Container $container)
     {
-        $this->config = $container->config->get('exceptions', []);
+        $this->config = require($container->configPath() . '/exceptions.php');
         $this->container = $container;
 
         parent::__construct(app());

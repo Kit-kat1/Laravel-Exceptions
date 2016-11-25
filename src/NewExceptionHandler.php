@@ -46,8 +46,8 @@ class NewExceptionHandler extends Handler
      */
     public function __construct(Container $container)
     {
-        $this->config = $container->config->get('exceptions', []);
+        $this->config = require($container->configPath() . '/exceptions.php');
 
-        parent::__construct($container);
+        parent::__construct(app());
     }
 }
